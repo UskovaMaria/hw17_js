@@ -28,33 +28,24 @@ btnAdd.onclick = function() {
 }
 
 btnDel.onclick = function() {
-  const del = doc.querySelectorAll('.item');
-  console.log(del);
-  
-  del.onclick = function() {
-    unActiveAll();
-    
-    this.remove();
-  }
+  const del = doc.querySelector('.item.active');
+  console.log(del);    
+  del.remove();
 }
   
 btnBefore.onclick = function() {
-  const before = doc.querySelectorAll('.item');
+  const before = doc.querySelector('.item.active');
   console.log(before);
-  before.onclick = function() {
-    unActiveAll();
-    
-  }
+  const clone = before.cloneNode(true);
+  box.append(clone);
 }
 
 
 btnAfter.onclick = function() {
-  const after = doc.querySelectorAll('.item');
+  const after = doc.querySelector('.item.active');
   console.log(after);
-  after.onclick = function() {
-    unActiveAll();
-    
-  }
+  const clone = after.cloneNode(true);
+  box.append(clone);
 }
 
 function unActiveAll() {
